@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-master
+  namespace: app-api
+  labels:
+    app: postgres-master
+    tier: backend
+spec:
+  ports:
+    - name: db
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    app: postgres-master
+    tier: backend
